@@ -136,19 +136,19 @@ class PageController extends Controller
                 'title' => 'Dashboard'
             ],
             
-            'inbox' => [
+            'gold' => [
                 'icon' => 'hexagon',
                 'layout' => 'side-menu',
-                'page_name' => 'inbox',
+                'page_name' => 'gold',
                 'title' => 'Precious Metal Storage'
             ],
-            'file-manager' => [
+            'box' => [
                 'icon' => 'box',
                 'layout' => 'side-menu',
-                'page_name' => 'file-manager',
+                'page_name' => 'box',
                 'title' => 'Safety Deposit Box '
             ],
-            'datatable' => [
+            'fine-arts-storage' => [
                 'icon' => 'book-open',
                 'layout' => 'side-menu',
                 'page_name' => 'datatable',

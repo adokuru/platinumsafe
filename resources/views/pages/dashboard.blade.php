@@ -1,7 +1,7 @@
 @extends('../layout/' . $layout)
 
 @section('subhead')
-    <title>Dashboard - Midone - Laravel Admin Dashboard Starter Kit</title>
+    <title>Dashboard - Platinum Safe Private Fault</title>
 @endsection
 
 @section('subcontent')
