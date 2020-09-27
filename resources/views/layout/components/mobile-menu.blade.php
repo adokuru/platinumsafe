@@ -3,7 +3,7 @@
     <div class="mobile-menu-bar">
         <a href="" class="flex mr-auto">
             <img alt="Platinum Safe Private Fault" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
-            <span class="hidden xl:block text-white text-lg ml-3 font-medium">Platinum Safe</span>
+            <span class="xl:block text-white text-lg ml-3 font-medium">Platinum Safe</span>
         </a>
         <a href="javascript:;" id="mobile-menu-toggler">
             <i data-feather="bar-chart-2" class="w-8 h-8 text-white transform -rotate-90"></i>
