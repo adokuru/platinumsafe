@@ -30,9 +30,6 @@
                     <div class="font-medium">{{ $loggedin_user->name }}</div>
                     
                 </div>
-                <div class="p-2">
-                   
-                </div>
                 <div class="p-2 border-t border-theme-40">
                     <a href="{{ route('logout') }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
                         <i data-feather="toggle-right" class="w-4 h-4 mr-2"></i> Logout

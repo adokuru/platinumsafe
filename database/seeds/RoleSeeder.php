@@ -13,6 +13,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $role = Role::create(['name' => 'Admin']);
+        $role->revokePermissionTo('user_dashboard');
         $role1 = Role::create(['name' => 'User']);
         $role1->givePermissionTo('user_dashboard');
 

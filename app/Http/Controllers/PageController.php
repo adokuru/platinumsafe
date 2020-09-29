@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
+
 class PageController extends Controller
 {
     /**
@@ -13,14 +14,14 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function loadPage($layout = 'side-menu', $pageName = 'dashboard')
-    {
+    {   
         $activeMenu = $this->activeMenu($layout, $pageName);
         return view('pages/' . $pageName, [
             'side_menu' => $this->sideMenu(),
             'first_page_name' => $activeMenu['first_page_name'],
             'second_page_name' => $activeMenu['second_page_name'],
             'third_page_name' => $activeMenu['third_page_name'],
-            'layout' => $layout
+            'layout' => $layout,
         ]);
     }
 
@@ -128,35 +129,66 @@ class PageController extends Controller
      */
     public function sideMenu()
     {
-        return [
-            'dashboard' => [
-                'icon' => 'home',
-                'layout' => 'side-menu',
-                'page_name' => 'dashboard',
-                'title' => 'Dashboard'
-            ],
-            
-            'gold' => [
-                'icon' => 'hexagon',
-                'layout' => 'side-menu',
-                'page_name' => 'gold',
-                'title' => 'Precious Metal Storage'
-            ],
-            'box' => [
-                'icon' => 'box',
-                'layout' => 'side-menu',
-                'page_name' => 'box',
-                'title' => 'Safety Deposit Box '
-            ],
-            'fine-arts-storage' => [
-                'icon' => 'book-open',
-                'layout' => 'side-menu',
-                'page_name' => 'datatable',
-                'title' => 'Fine Arts Storage'
-            ]
+        if (auth()->user()->hasRole('Admin')) {
+            return [
+                'dashboard' => [
+                    'icon' => 'home',
+                    'layout' => 'side-menu',
+                    'page_name' => 'dashboard',
+                    'title' => 'Dashboard'
+                ],
                 
-            
-        ];
+                'gold' => [
+                    'icon' => 'hexagon',
+                    'layout' => 'side-menu',
+                    'page_name' => 'stones',
+                    'title' => 'Precious Metal Storage'
+                ],
+                'box' => [
+                    'icon' => 'box',
+                    'layout' => 'side-menu',
+                    'page_name' => 'box',
+                    'title' => 'Safety Deposit Box '
+                ],
+                'fine-arts-storage' => [
+                    'icon' => 'book-open',
+                    'layout' => 'side-menu',
+                    'page_name' => 'arts',
+                    'title' => 'Fine Arts Storage'
+                ]
+                    
+                
+            ];
+        }else{
+            return [
+                'dashboard' => [
+                    'icon' => 'home',
+                    'layout' => 'side-menu',
+                    'page_name' => 'dashboard',
+                    'title' => 'Dashboard'
+                ],
+                
+                'gold' => [
+                    'icon' => 'hexagon',
+                    'layout' => 'side-menu',
+                    'page_name' => 'stones',
+                    'title' => 'Precious Metal Storage'
+                ],
+                'box' => [
+                    'icon' => 'box',
+                    'layout' => 'side-menu',
+                    'page_name' => 'box',
+                    'title' => 'Safety Deposit Box '
+                ],
+                'fine-arts-storage' => [
+                    'icon' => 'book-open',
+                    'layout' => 'side-menu',
+                    'page_name' => 'arts',
+                    'title' => 'Fine Arts Storage'
+                ]
+                  
+            ];
+        }
     }
 
 

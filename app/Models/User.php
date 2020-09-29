@@ -9,7 +9,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes, HasRoles ;
+    use Notifiable, SoftDeletes, HasRoles;
 
     protected $hidden = ['password', 'remember_token'];
     protected $appends = ['photo'];

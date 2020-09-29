@@ -19,7 +19,11 @@ Route::middleware('loggedin')->group(function() {
 });
 
 Route::middleware('auth')->group(function() {
-    Route::get('/', 'PageController@loadPage')->name('dashboard');
+    Route::get('/', 'HomeController@index')->name('dashboard');
     Route::get('logout', 'AuthController@logout')->name('logout');
     Route::get('page/{layout}/{pageName}', 'PageController@loadPage')->name('page');
+    Route::resource('admin/users', 'UsersController');
+    Route::resource('admin/art', 'FineArtController');
+    Route::resource('admin/storage', 'StorageController');
+    Route::resource('admin/stones', 'PreciousStoneController');
 });

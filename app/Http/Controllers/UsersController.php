@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PreciousStone;
 use Illuminate\Http\Request;
 
-class PreciousStoneController extends Controller
+class UsersController extends Controller
 {
+    //
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +15,6 @@ class PreciousStoneController extends Controller
     public function index()
     {
         //
-        
     }
 
     /**
@@ -42,10 +41,10 @@ class PreciousStoneController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\PreciousStone  $preciousStone
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PreciousStone $preciousStone)
+    public function show($id)
     {
         //
     }
@@ -53,10 +52,10 @@ class PreciousStoneController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\PreciousStone  $preciousStone
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(PreciousStone $preciousStone)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +64,10 @@ class PreciousStoneController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PreciousStone  $preciousStone
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PreciousStone $preciousStone)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +75,10 @@ class PreciousStoneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PreciousStone  $preciousStone
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PreciousStone $preciousStone)
+    public function destroy($id)
     {
         //
     }

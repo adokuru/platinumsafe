@@ -15,6 +15,13 @@ class CreateStoragesTable extends Migration
     {
         Schema::create('storages', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('depositor');
+            $table->string('storageitem');
+            $table->string('amount');
+            $table->string('quantity');
+            $table->string('status')->default('Inactive');
             $table->timestamps();
         });
     }

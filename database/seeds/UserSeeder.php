@@ -15,20 +15,20 @@ class UserSeeder extends Seeder
     {
 
         $user1 = User::create([
-            'name' => 'User 1',
+            'name' => 'Adminstrator',
                 'email' => 'admin@admin.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-                'gender' => 'male',
+                'gender' => 'Male',
                 'active' => 1,
                 'remember_token' => Str::random(10)
         ]);
         $user1->assignRole('Admin');
 
         $user3 = User::create([
-            'name' => 'User 1',
+            'name' => 'Test User',
                 'email' => 'midone@left4code.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-                'gender' => 'male',
+                'gender' => 'Female',
                 'active' => 1,
                 'remember_token' => Str::random(10)
         ]);

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FineArt;
 use App\Models\PreciousStone;
+use App\Models\Storage;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class PreciousStoneController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +18,16 @@ class PreciousStoneController extends Controller
     public function index()
     {
         //
-        
+        if (auth()->user()->hasRole('Admin')) {
+            $stones = PreciousStone::all()->count();
+            $art = FineArt::all()->count();
+            $storage = Storage::all()->count();
+            $countUser = User::role('User')->count();
+            $users = User::role('User')->orderBy('id', 'desc')->take(5)->get();
+            return(view('admin.index', compact('stones', 'art', 'storage','users','countUser')));
+        }else{
+            return(view('user.index'));
+        }
     }
 
     /**
@@ -42,10 +54,10 @@ class PreciousStoneController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\PreciousStone  $preciousStone
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PreciousStone $preciousStone)
+    public function show($id)
     {
         //
     }
@@ -53,10 +65,10 @@ class PreciousStoneController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\PreciousStone  $preciousStone
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(PreciousStone $preciousStone)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +77,10 @@ class PreciousStoneController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PreciousStone  $preciousStone
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PreciousStone $preciousStone)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +88,10 @@ class PreciousStoneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PreciousStone  $preciousStone
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PreciousStone $preciousStone)
+    public function destroy($id)
     {
         //
     }
