@@ -73,7 +73,15 @@
             User List
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button class="button text-white bg-theme-1 shadow-md mr-2">Add New User</button>
+
+                <a
+                    href="javascript:;"
+                    data-toggle="modal"
+                    data-target="#header-footer-modal-preview"
+                    class="button text-white bg-theme-1 shadow-md mr-2"
+                    >Add New User</a
+                >
+            
             
         </div>
     </div>
@@ -212,4 +220,75 @@
     </div>
 </div>
 <!-- END: Content -->
+
+<div class="modal" id="header-footer-modal-preview">
+    <div class="modal__content">
+        <div
+            class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200"
+        >
+            <h2 class="font-medium text-base mr-auto">Add New User</h2>
+            
+            
+        </div>
+        <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
+            <div class="col-span-12 sm:col-span-6">
+                <label>Name</label>
+                <input
+                    type="text"
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="David Musa"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Email</label>
+                <input
+                    type="text"
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="example@gmail.com"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Subject</label>
+                <input
+                    type="text"
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="Important Meeting"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Has the Words</label>
+                <input
+                    type="text"
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="Job, Work, Documentation"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Doesn't Have</label>
+                <input
+                    type="text"
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="Job, Work, Documentation"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Size</label>
+                <select class="input w-full border mt-2 flex-1">
+                    <option>10</option>
+                    <option>25</option>
+                    <option>35</option>
+                    <option>50</option>
+                </select>
+            </div>
+        </div>
+        <div class="px-5 py-3 text-right border-t border-gray-200">
+            <button type="button" class="button w-20 border text-gray-700 mr-1">
+                Cancel
+            </button>
+            <button type="button" class="button w-20 bg-theme-1 text-white">
+                Send
+            </button>
+        </div>
+    </div>
+</div>
 @endsection

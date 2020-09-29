@@ -73,7 +73,7 @@
             Precious Stones List
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Art</button>
+            <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Storage Item</button>
             
         </div>
     </div>
