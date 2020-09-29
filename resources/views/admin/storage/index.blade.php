@@ -1,4 +1,4 @@
-@extends('../layout/admindashboard') @section('title', 'Users - ')
+@extends('../layout/admindashboard') @section('title', 'Safety Deposit Box - ')
 @section('nav')
 <nav class="side-nav">
     <a href="" class="intro-x flex items-center pl-5 pt-4">
@@ -24,7 +24,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('users.index') }}" class="side-menu side-menu--active">
+            <a href="{{ route('users.index') }}" class="side-menu ">
                 <div class="side-menu__icon">
                     <i data-feather="user"></i>
                 </div>
@@ -34,7 +34,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('stones.index') }}" class="side-menu">
+            <a href="{{ route('stones.index') }}" class="side-menu ">
                 <div class="side-menu__icon">
                     <i data-feather="hexagon"></i>
                 </div>
@@ -44,7 +44,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('storage.index') }}" class="side-menu">
+            <a href="{{ route('storage.index') }}" class="side-menu side-menu--active">
                 <div class="side-menu__icon">
                     <i data-feather="box"></i>
                 </div>
@@ -54,7 +54,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('art.index') }}" class="side-menu">
+            <a href="{{ route('art.index') }}" class="side-menu ">
                 <div class="side-menu__icon">
                     <i data-feather="book-open"></i>
                 </div>
@@ -70,10 +70,10 @@
 <div class="content">
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            User List
+            Precious Stones List
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button class="button text-white bg-theme-1 shadow-md mr-2">Add New User</button>
+            <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Art</button>
             
         </div>
     </div>
@@ -82,26 +82,32 @@
         <table class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
-                    <th class="border-b-2 whitespace-no-wrap"> ID</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">NAME</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">EMAIL</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">GENDER</th>
+                    <th class="border-b-2 whitespace-no-wrap"> STORAGE ITEM</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">DESPOITOR NAME</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">WEIGHT</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">AMOUNT/QUANITY</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">STATUS</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($users as $key => $user)
+                @foreach($storages as $key => $art)
                 <tr>
                     <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{$user->id}}</div>
+                        <div class="font-medium whitespace-no-wrap">{{$art->storageitem}}</div>
                     </td>
                     <td class="text-center border-b">
                         <div class="flex sm:justify-center">
-                            {{$user->name}}
+                            {{$art->depositor}}
                         </div>
                     </td>
-                    <td class="text-center border-b">{{$user->email}}</td>
-                    <td class="text-center border-b">{{$user->gender}}</td>
+                    <td class="text-center border-b">{{$art->weight}}</td>
+                    <td class="text-center border-b">{{$art->quantity}}</td>
+                    <td class="text-center border-b">
+                    <div class="flex items-center justify-center {{$art->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
+                        <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$art->status }}
+                    </div>
+                    </td>
                     <td class="border-b w-5">
                         
                             <div
@@ -109,7 +115,7 @@
                             >
                                 <a
                                     class="flex items-center mr-3"
-                                    href="{{ route('users.show', $user->id) }}"
+                                    href="{{ route('arts.show', $stone->id) }}"
                                 >
                                     <i
                                         data-feather="eye"
@@ -119,7 +125,7 @@
                                 </a>
                                 <a
                                     class="flex items-center mr-3"
-                                    href="{{ route('users.edit', $user->id) }}"
+                                    href="{{ route('arts.edit', $stone->id) }}"
                                 >
                                     <i
                                         data-feather="edit-2"
@@ -174,7 +180,7 @@
                                             </button>
 
                                             <form
-                                                action="{{ route('users.destroy', $user->id) }}"
+                                                action="{{ route('arts.destroy', $stone->id) }}"
                                                 method="POST"
                                             >
                                                 <input

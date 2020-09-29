@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\FineArt;
+use App\Models\FineArt;
 use Illuminate\Http\Request;
 
 class FineArtController extends Controller
@@ -15,6 +15,9 @@ class FineArtController extends Controller
     public function index()
     {
         //
+        $arts = FineArt::all();
+
+        return view('admin.arts.index', compact('arts'));
     }
 
     /**

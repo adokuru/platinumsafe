@@ -3,7 +3,7 @@
 <nav class="side-nav">
     <a href="" class="intro-x flex items-center pl-5 pt-4">
         <img
-            alt="Platinum Safe Private Fault"
+            alt="Platinum Safe Private Fault" 
             class="w-6"
             src="{{ asset('dist/images/logo.svg') }}"
         />

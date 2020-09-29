@@ -19,7 +19,7 @@ class CreatePreciousStonesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('depositor');
             $table->string('storageitem');
-            $table->string('amount');
+            $table->string('weight');
             $table->string('quantity');
             $table->string('status')->default('Inactive');
             $table->timestamps();

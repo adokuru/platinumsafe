@@ -15,7 +15,10 @@ class PreciousStoneController extends Controller
     public function index()
     {
         //
-        
+        $stones = PreciousStone::all();
+
+        return view('admin.stones.index', compact('stones'));
+
     }
 
     /**
