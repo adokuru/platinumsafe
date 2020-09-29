@@ -91,21 +91,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($storages as $key => $art)
+                @foreach($storages as $key => $storage)
                 <tr>
                     <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{$art->storageitem}}</div>
+                        <div class="font-medium whitespace-no-wrap">{{$storage->storageitem}}</div>
                     </td>
                     <td class="text-center border-b">
                         <div class="flex sm:justify-center">
-                            {{$art->depositor}}
+                            {{$storage->depositor}}
                         </div>
                     </td>
-                    <td class="text-center border-b">{{$art->weight}}</td>
-                    <td class="text-center border-b">{{$art->quantity}}</td>
+                    <td class="text-center border-b">{{$storage->weight}}</td>
+                    <td class="text-center border-b">{{$storage->quantity}}</td>
                     <td class="text-center border-b">
-                    <div class="flex items-center justify-center {{$art->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
-                        <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$art->status }}
+                    <div class="flex items-center justify-center {{$storage->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
+                        <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$storage->status }}
                     </div>
                     </td>
                     <td class="border-b w-5">
@@ -115,7 +115,7 @@
                             >
                                 <a
                                     class="flex items-center mr-3"
-                                    href="{{ route('arts.show', $stone->id) }}"
+                                    href="{{ route('storage.show', $storage->id) }}"
                                 >
                                     <i
                                         data-feather="eye"
@@ -125,7 +125,7 @@
                                 </a>
                                 <a
                                     class="flex items-center mr-3"
-                                    href="{{ route('arts.edit', $stone->id) }}"
+                                    href="{{ route('storage.edit', $storage->id) }}"
                                 >
                                     <i
                                         data-feather="edit-2"
@@ -180,7 +180,7 @@
                                             </button>
 
                                             <form
-                                                action="{{ route('arts.destroy', $stone->id) }}"
+                                                action="{{ route('storage.destroy', $storage->id) }}"
                                                 method="POST"
                                             >
                                                 <input

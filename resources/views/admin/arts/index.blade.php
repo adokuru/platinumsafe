@@ -115,7 +115,7 @@
                             >
                                 <a
                                     class="flex items-center mr-3"
-                                    href="{{ route('arts.show', $stone->id) }}"
+                                    href="{{ route('art.show', $art->id) }}"
                                 >
                                     <i
                                         data-feather="eye"
@@ -125,7 +125,7 @@
                                 </a>
                                 <a
                                     class="flex items-center mr-3"
-                                    href="{{ route('arts.edit', $stone->id) }}"
+                                    href="{{ route('art.edit', $art->id) }}"
                                 >
                                     <i
                                         data-feather="edit-2"
@@ -180,7 +180,7 @@
                                             </button>
 
                                             <form
-                                                action="{{ route('arts.destroy', $stone->id) }}"
+                                                action="{{ route('art.destroy', $art->id) }}"
                                                 method="POST"
                                             >
                                                 <input
