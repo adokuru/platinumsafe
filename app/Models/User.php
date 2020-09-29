@@ -14,6 +14,10 @@ class User extends Authenticatable
     protected $hidden = ['password', 'remember_token'];
     protected $appends = ['photo'];
 
+    protected $fillable = [
+        'name', 'email', 'password', 'gender'
+    ];
+
     public function getPhotoUrlAttribute()
     {
         if ($this->foto !== null) {

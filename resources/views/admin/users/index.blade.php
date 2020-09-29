@@ -230,11 +230,16 @@
             
             
         </div>
+        <form method="POST" action="{{ route("users.store") }}" enctype="multipart/form-data">
+            @csrf
         <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
+            
             <div class="col-span-12 sm:col-span-6">
                 <label>Name</label>
                 <input
                     type="text"
+                    name="name"
+                    required
                     class="input w-full border mt-2 flex-1"
                     placeholder="David Musa"
                 />
@@ -243,52 +248,40 @@
                 <label>Email</label>
                 <input
                     type="text"
+                    name="email"
+                    required
                     class="input w-full border mt-2 flex-1"
                     placeholder="example@gmail.com"
                 />
             </div>
             <div class="col-span-12 sm:col-span-6">
-                <label>Subject</label>
+                <label>Password</label>
                 <input
-                    type="text"
+                    type="password"
+                    name="password"
+                    required
                     class="input w-full border mt-2 flex-1"
-                    placeholder="Important Meeting"
+                    placeholder="password"
                 />
             </div>
             <div class="col-span-12 sm:col-span-6">
-                <label>Has the Words</label>
-                <input
-                    type="text"
-                    class="input w-full border mt-2 flex-1"
-                    placeholder="Job, Work, Documentation"
-                />
-            </div>
-            <div class="col-span-12 sm:col-span-6">
-                <label>Doesn't Have</label>
-                <input
-                    type="text"
-                    class="input w-full border mt-2 flex-1"
-                    placeholder="Job, Work, Documentation"
-                />
-            </div>
-            <div class="col-span-12 sm:col-span-6">
-                <label>Size</label>
-                <select class="input w-full border mt-2 flex-1">
-                    <option>10</option>
-                    <option>25</option>
-                    <option>35</option>
-                    <option>50</option>
+                <label>Gender</label>
+                <select name="gender" class="input w-full border mt-2 flex-1" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                 </select>
             </div>
+        
         </div>
         <div class="px-5 py-3 text-right border-t border-gray-200">
-            <button type="button" class="button w-20 border text-gray-700 mr-1">
+            <button type="cancel" class="button w-20 border text-gray-700 mr-1">
                 Cancel
             </button>
-            <button type="button" class="button w-20 bg-theme-1 text-white">
+            <button type="submit" class="button w-20 bg-theme-1 text-white">
                 Send
             </button>
         </div>
+    </form>
     </div>
 </div>
 @endsection
