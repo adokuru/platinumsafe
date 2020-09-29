@@ -24,7 +24,17 @@
             </a>
         </li>
         <li>
-            <a href="/stones" class="side-menu">
+            <a href="{{ route('users.index') }}" class="side-menu ">
+                <div class="side-menu__icon">
+                    <i data-feather="user"></i>
+                </div>
+                <div class="side-menu__title">
+                   Users
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('stones.index') }}" class="side-menu">
                 <div class="side-menu__icon">
                     <i data-feather="hexagon"></i>
                 </div>
@@ -34,7 +44,7 @@
             </a>
         </li>
         <li>
-            <a href="/box" class="side-menu">
+            <a href="{{ route('storage.index') }}" class="side-menu">
                 <div class="side-menu__icon">
                     <i data-feather="box"></i>
                 </div>
@@ -44,7 +54,7 @@
             </a>
         </li>
         <li>
-            <a href="/arts" class="side-menu">
+            <a href="{{ route('art.index') }}" class="side-menu">
                 <div class="side-menu__icon">
                     <i data-feather="book-open"></i>
                 </div>
@@ -127,7 +137,7 @@
                             <div class="box p-5">
                                 <div class="flex">
                                     <i
-                                        data-feather="hexagon"
+                                        data-feather="user"
                                         class="report-box__icon text-theme-10"
                                     ></i>
                                     <div class="ml-auto"></div>
@@ -264,34 +274,99 @@
                                     >
                                         <a
                                             class="flex items-center mr-3"
-                                            href=""
+                                            href="{{ route('users.show', $user->id) }}"
                                         >
                                             <i
-                                                data-feather="check-square"
+                                                data-feather="eye"
                                                 class="w-4 h-4 mr-1"
                                             ></i>
                                             View
                                         </a>
                                         <a
                                             class="flex items-center mr-3"
-                                            href=""
+                                            href="{{ route('users.edit', $user->id) }}"
                                         >
                                             <i
-                                                data-feather="check-square"
+                                                data-feather="edit-2"
                                                 class="w-4 h-4 mr-1"
                                             ></i>
                                             Edit
                                         </a>
-                                        <a
-                                            class="flex items-center mr-3"
-                                            href=""
+                                        <div class="text-center">
+                                            <a
+                                                href="javascript:;"
+                                                data-toggle="modal"
+                                                data-target="#delete-modal-preview"
+                                                class="flex items-center mr-3"
+                                                ><i
+                                                    data-feather="trash"
+                                                    class="w-4 h-4 mr-1"
+                                                ></i>
+                                                Delete</a
+                                            >
+                                        </div>
+                                        <div
+                                            class="modal"
+                                            id="delete-modal-preview"
                                         >
-                                            <i
-                                                data-feather="check-square"
-                                                class="w-4 h-4 mr-1"
-                                            ></i>
-                                            Delete
-                                        </a>
+                                            <div class="modal__content">
+                                                <div class="p-5 text-center">
+                                                    <i
+                                                        data-feather="x-circle"
+                                                        class="w-16 h-16 text-theme-6 mx-auto mt-3"
+                                                    ></i>
+                                                    <div class="text-3xl mt-5">
+                                                        Are you sure?
+                                                    </div>
+                                                    <div
+                                                        class="text-gray-600 mt-2"
+                                                    >
+                                                        Do you really want to
+                                                        delete these records?
+                                                        This process cannot be
+                                                        undone.
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="px-5 pb-8 text-center"
+                                                >
+                                                    <button
+                                                        type="button"
+                                                        data-dismiss="modal"
+                                                        class="button w-24 border text-gray-700 mr-1"
+                                                    >
+                                                        Cancel
+                                                    </button>
+
+                                                    <form
+                                                        action="{{ route('users.destroy', $user->id) }}"
+                                                        method="POST"
+                                                    >
+                                                        <input
+                                                            type="hidden"
+                                                            name="_method"
+                                                            value="DELETE"
+                                                        />
+                                                        <input
+                                                            type="hidden"
+                                                            name="_token"
+                                                            value="{{
+                                                                csrf_token()
+                                                            }}"
+                                                        />
+                                                        <button
+                                                            type="submit"
+                                                            class="button w-24 bg-theme-6 text-white"
+                                                        >
+                                                            <i
+                                                                class="= feather icon-trash-2"
+                                                            ></i>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>

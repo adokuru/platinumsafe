@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -15,6 +17,9 @@ class UsersController extends Controller
     public function index()
     {
         //
+        $users = User::all();
+
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -25,6 +30,8 @@ class UsersController extends Controller
     public function create()
     {
         //
+        $roles = Role::get()->pluck('name', 'name');
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -33,9 +40,14 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
         //
+        $user = User::create($request->all());
+        $roles = $request->input('roles') ? $request->input('roles') : [];
+        $user->assignRole($roles);
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -44,9 +56,12 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         //
+        $user->load('roles');
+
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -55,9 +70,12 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         //
+        $roles = Role::get()->pluck('name', 'name');
+
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -67,9 +85,14 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         //
+        $user->update($request->all());
+        $roles = $request->input('roles') ? $request->input('roles') : [];
+        $user->syncRoles($roles);
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -78,8 +101,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         //
+        $user->delete();
+
+        return redirect()->route('users.index');
     }
 }
