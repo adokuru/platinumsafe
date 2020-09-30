@@ -21,7 +21,7 @@ class CreateStoragesTable extends Migration
             $table->string('storageitem');
             $table->string('weight');
             $table->string('quantity');
-            $table->string('status')->default('Inactive');
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

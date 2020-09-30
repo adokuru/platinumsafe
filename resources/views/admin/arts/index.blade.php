@@ -73,9 +73,17 @@
             Precious Stones List
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Art</button>
-            
-        </div>
+
+            <a
+                href="javascript:;"
+                data-toggle="modal"
+                data-target="#header-footer-modal-preview"
+                class="button text-white bg-theme-1 shadow-md mr-2"
+                >Add New Art</a
+            >
+        
+        
+    </div>
     </div>
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
@@ -223,11 +231,11 @@
         <div
             class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200"
         >
-            <h2 class="font-medium text-base mr-auto">Add New Storage Item</h2>
+            <h2 class="font-medium text-base mr-auto">Add New Art</h2>
             
             
         </div>
-        <form method="POST" action="{{ route("storage.store") }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("art.store") }}" enctype="multipart/form-data">
             @csrf
         <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
             
@@ -284,7 +292,7 @@
                 <select name="status" class="input w-full border mt-2 flex-1" required>
                   
                     <option value="Active">Active</option>
-                    <option value="Inactive">Inctive</option>
+                    <option value="Pending">Pending</option>
                     
                 </select>
             </div>
@@ -302,22 +310,4 @@
     </form>
     </div>
 </div>
-<script src="https:://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-	//Chosen
-  $(".choiceChosen, .productChosen").chosen({});
-  //Logic
-  $(".choiceChosen").change(function(){
-    if($(".choiceChosen option:selected").val()=="no"){
-      $(".productChosen option[value='2']").attr('disabled',true).trigger("chosen:updated");
-      $(".productChosen option[value='1']").removeAttr('disabled',true).trigger("chosen:updated");
-    } else {
-      $(".productChosen option[value='1']").attr('disabled',true).trigger("chosen:updated");
-      $(".productChosen option[value='2']").removeAttr('disabled',true).trigger("chosen:updated");
-    }
-  })
-})
-</script>
 @endsection

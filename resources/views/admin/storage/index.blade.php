@@ -294,7 +294,7 @@
                 <select name="status" class="input w-full border mt-2 flex-1" required>
                   
                     <option value="Active">Active</option>
-                    <option value="Inactive">Inctive</option>
+                    <option value="Pending">Pending</option>
                     
                 </select>
             </div>

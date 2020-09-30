@@ -45,9 +45,12 @@ class FineArtController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, FineArt $art)
     {
         //
+        $art = FineArt::create($request->all());
+
+        return redirect()->route('art.index');
     }
 
     /**
@@ -56,9 +59,10 @@ class FineArtController extends Controller
      * @param  \App\FineArt  $fineArt
      * @return \Illuminate\Http\Response
      */
-    public function show(FineArt $fineArt)
+    public function show(FineArt $art)
     {
         //
+        return view('show.art', compact('art'));
     }
 
     /**
@@ -93,5 +97,8 @@ class FineArtController extends Controller
     public function destroy(FineArt $fineArt)
     {
         //
+        $fineArt->delete();
+
+        return redirect()->route('art.index');
     }
 }

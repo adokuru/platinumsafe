@@ -47,9 +47,12 @@ class PreciousStoneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, PreciousStone $preciousStone)
     {
         //
+        $preciousStone = PreciousStone::create($request->all());
+
+        return redirect()->route('stones.index');
     }
 
     /**
@@ -58,9 +61,10 @@ class PreciousStoneController extends Controller
      * @param  \App\PreciousStone  $preciousStone
      * @return \Illuminate\Http\Response
      */
-    public function show(PreciousStone $preciousStone)
+    public function show(PreciousStone $stone)
     {
         //
+        return view('show.stone', compact('stone'));
     }
 
     /**

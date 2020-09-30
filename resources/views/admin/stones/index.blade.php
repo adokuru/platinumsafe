@@ -73,9 +73,17 @@
             Precious Stones List
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Item</button>
-            
-        </div>
+
+            <a
+                href="javascript:;"
+                data-toggle="modal"
+                data-target="#header-footer-modal-preview"
+                class="button text-white bg-theme-1 shadow-md mr-2"
+                >Add New Item</a
+            >
+        
+        
+    </div>
     </div>
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
@@ -227,7 +235,7 @@
             
             
         </div>
-        <form method="POST" action="{{ route("storage.store") }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("stones.store") }}" enctype="multipart/form-data">
             @csrf
         <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
             
@@ -284,7 +292,7 @@
                 <select name="status" class="input w-full border mt-2 flex-1" required>
                   
                     <option value="Active">Active</option>
-                    <option value="Inactive">Inctive</option>
+                    <option value="Pending">Pending</option>
                     
                 </select>
             </div>

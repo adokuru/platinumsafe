@@ -65,7 +65,7 @@ class StorageController extends Controller
     public function show(Storage $storage)
     {
         //
-        return view('admin.storage.show', compact('storage'));
+        return view('show.storage', compact('storage'));
     }
 
     /**
