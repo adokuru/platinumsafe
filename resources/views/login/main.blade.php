@@ -1,7 +1,7 @@
 @extends('../layout/' . $layout)
 
 @section('head')
-    <title>Login - Midone - Laravel Admin Dashboard Starter Kit</title>
+    <title>Login - Platinum Safe Private Vault</title>
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                 <a href="" class="-intro-x flex items-center pt-5">
                     <img alt="Platinum Safe Private Fault" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
                     <span class="text-white text-lg ml-3">
-                        Platinum Safe <span class="font-medium">Private Fault</span>
+                        Platinum Safe <span class="font-medium">Private Vault</span>
                     </span>
                 </a>
                 <div class="my-auto">
