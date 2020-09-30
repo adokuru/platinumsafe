@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Storage;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StorageController extends Controller
 {
@@ -16,11 +17,20 @@ class StorageController extends Controller
     public function index()
     {
         //
+        if (auth()->user()->hasRole('Admin')) {
         $storages = Storage::all();
         $users = User::all();
 
         return view('admin.storage.index', compact('storages','users'));
+    }else{
+        $id = Auth::id();
+        $user = User::find($id);
+        $storages = Storage::where('user_id', $id)->get();
+        return view('users.storage.index', compact('storages'));
     }
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -94,5 +104,8 @@ class StorageController extends Controller
     public function destroy(Storage $storage)
     {
         //
+        $storage->delete();
+
+        return redirect()->route('storage.index');
     }
 }

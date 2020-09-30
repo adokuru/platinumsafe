@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\PreciousStone;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PreciousStoneController extends Controller
 {
@@ -13,11 +15,19 @@ class PreciousStoneController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-        $stones = PreciousStone::all();
-
-        return view('admin.stones.index', compact('stones'));
+        {
+            //
+            if (auth()->user()->hasRole('Admin')) {
+                $stones = PreciousStone::all();
+                $users = User::all();
+        
+                return view('admin.stones.index', compact('stones','users'));
+        }else{
+            $id = Auth::id();
+            $user = User::find($id);
+            $stones = PreciousStone::where('user_id', $id)->get();
+            return view('users.stones.index', compact('stones'));
+        }
 
     }
 

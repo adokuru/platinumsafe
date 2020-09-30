@@ -312,22 +312,4 @@
     </form>
     </div>
 </div>
-<script src="https:://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-	//Chosen
-  $(".choiceChosen, .productChosen").chosen({});
-  //Logic
-  $(".choiceChosen").change(function(){
-    if($(".choiceChosen option:selected").val()=="no"){
-      $(".productChosen option[value='2']").attr('disabled',true).trigger("chosen:updated");
-      $(".productChosen option[value='1']").removeAttr('disabled',true).trigger("chosen:updated");
-    } else {
-      $(".productChosen option[value='1']").attr('disabled',true).trigger("chosen:updated");
-      $(".productChosen option[value='2']").removeAttr('disabled',true).trigger("chosen:updated");
-    }
-  })
-})
-</script>
 @endsection

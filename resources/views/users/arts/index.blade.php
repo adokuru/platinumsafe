@@ -1,4 +1,4 @@
-@extends('../layout/admindashboard') @section('title', 'Precious Stones - ')
+@extends('../layout/admindashboard') @section('title', 'Fine Arts - ')
 @section('nav')
 <nav class="side-nav">
     <a href="" class="intro-x flex items-center pl-5 pt-4">
@@ -23,18 +23,9 @@
                 </div>
             </a>
         </li>
+        
         <li>
-            <a href="{{ route('users.index') }}" class="side-menu ">
-                <div class="side-menu__icon">
-                    <i data-feather="user"></i>
-                </div>
-                <div class="side-menu__title">
-                   Users
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('stones.index') }}" class="side-menu side-menu--active">
+            <a href="{{ route('stones.index') }}" class="side-menu ">
                 <div class="side-menu__icon">
                     <i data-feather="hexagon"></i>
                 </div>
@@ -44,7 +35,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('storage.index') }}" class="side-menu">
+            <a href="{{ route('storage.index') }}" class="side-menu ">
                 <div class="side-menu__icon">
                     <i data-feather="box"></i>
                 </div>
@@ -54,7 +45,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('art.index') }}" class="side-menu">
+            <a href="{{ route('art.index') }}" class="side-menu side-menu--active">
                 <div class="side-menu__icon">
                     <i data-feather="book-open"></i>
                 </div>
@@ -72,10 +63,7 @@
         <h2 class="text-lg font-medium mr-auto">
             Precious Stones List
         </h2>
-        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Item</button>
-            
-        </div>
+        
     </div>
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
@@ -91,21 +79,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($stones as $key => $stone)
+                @foreach($arts as $key => $art)
                 <tr>
                     <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{$stone->storageitem}}</div>
+                        <div class="font-medium whitespace-no-wrap">{{$art->storageitem}}</div>
                     </td>
                     <td class="text-center border-b">
                         <div class="flex sm:justify-center">
-                            {{$stone->depositor}}
+                            {{$art->depositor}}
                         </div>
                     </td>
-                    <td class="text-center border-b">{{$stone->weight}}</td>
-                    <td class="text-center border-b">{{$stone->quantity}}</td>
+                    <td class="text-center border-b">{{$art->weight}}</td>
+                    <td class="text-center border-b">{{$art->quantity}}</td>
                     <td class="text-center border-b">
-                    <div class="flex items-center justify-center {{$stone->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
-                        <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$stone->status }}
+                    <div class="flex items-center justify-center {{$art->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
+                        <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$art->status }}
                     </div>
                     </td>
                     <td class="border-b w-5">
@@ -115,7 +103,7 @@
                             >
                                 <a
                                     class="flex items-center mr-3"
-                                    href="{{ route('stones.show', $stone->id) }}"
+                                    href="{{ route('art.show', $art->id) }}"
                                 >
                                     <i
                                         data-feather="eye"
@@ -125,7 +113,7 @@
                                 </a>
                                 <a
                                     class="flex items-center mr-3"
-                                    href="{{ route('stones.edit', $stone->id) }}"
+                                    href="{{ route('art.edit', $art->id) }}"
                                 >
                                     <i
                                         data-feather="edit-2"
@@ -180,7 +168,7 @@
                                             </button>
 
                                             <form
-                                                action="{{ route('stones.destroy', $stone->id) }}"
+                                                action="{{ route('art.destroy', $art->id) }}"
                                                 method="POST"
                                             >
                                                 <input
@@ -218,88 +206,5 @@
     </div>
 </div>
 <!-- END: Content -->
-<div class="modal" id="header-footer-modal-preview">
-    <div class="modal__content">
-        <div
-            class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200"
-        >
-            <h2 class="font-medium text-base mr-auto">Add New Storage Item</h2>
-            
-            
-        </div>
-        <form method="POST" action="{{ route("storage.store") }}" enctype="multipart/form-data">
-            @csrf
-        <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
-            
-            <div class="col-span-12 sm:col-span-6">
-                <label>User</label>
-                <select name="user_id" class="choiceChosen input w-full border mt-2 flex-1" required>
-                    @foreach($users as $key => $user)
-                    <option value="{{$user->id}}">{{$user->name}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-span-12 sm:col-span-6">
-                <label>Depositor Name</label>
-                <input
-                    type="text"
-                    name="depositor"
-                    required
-                    class="input w-full border mt-2 flex-1"
-                    placeholder="example@gmail.com"
-                />
-            </div>
-            <div class="col-span-12 sm:col-span-6">
-                <label>Storage Item</label>
-                <input
-                    type="text"
-                    name="storageitem"
-                    required
-                    class="input w-full border mt-2 flex-1"
-                    placeholder="Storage Item"
-                />
-            </div>
-            <div class="col-span-12 sm:col-span-6">
-                <label>Weight</label>
-                <input
-                    type="text"
-                    name="weight"
-                    required
-                    class="input w-full border mt-2 flex-1"
-                    placeholder="10 kgs"
-                />
-            </div>
-            <div class="col-span-12 sm:col-span-6">
-                <label>Quantity</label>
-                <input
-                    type="text"
-                    name="quantity"
-                    required
-                    class="input w-full border mt-2 flex-1"
-                    placeholder="1"
-                />
-            </div>
-            <div class="col-span-12 sm:col-span-6">
-                <label>Status</label>
-                <select name="status" class="input w-full border mt-2 flex-1" required>
-                  
-                    <option value="Active">Active</option>
-                    <option value="Inactive">Inctive</option>
-                    
-                </select>
-            </div>
-            
-        
-        </div>
-        <div class="px-5 py-3 text-right border-t border-gray-200">
-            <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 mr-1">
-                Cancel
-            </button>
-            <button type="submit" class="button w-20 bg-theme-1 text-white">
-                Send
-            </button>
-        </div>
-    </form>
-    </div>
-</div>
+
 @endsection

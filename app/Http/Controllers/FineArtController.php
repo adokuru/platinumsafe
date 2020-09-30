@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\FineArt;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FineArtController extends Controller
 {
@@ -14,10 +16,17 @@ class FineArtController extends Controller
      */
     public function index()
     {
-        //
-        $arts = FineArt::all();
-
-        return view('admin.arts.index', compact('arts'));
+        if (auth()->user()->hasRole('Admin')) {
+            $arts = FineArt::all();
+            $users = User::all();
+    
+                return view('admin.arts.index', compact('arts','users'));
+        }else{
+            $id = Auth::id();
+            $user = User::find($id);
+            $arts = FineArt::where('user_id', $id)->get();
+            return view('users.arts.index', compact('arts'));
+    }
     }
 
     /**

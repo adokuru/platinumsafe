@@ -24,7 +24,7 @@
             </a>
         </li>
         <li>
-            <a href="/stones" class="side-menu">
+            <a href="{{ route('stones.index') }}" class="side-menu">
                 <div class="side-menu__icon">
                     <i data-feather="hexagon"></i>
                 </div>
@@ -34,7 +34,7 @@
             </a>
         </li>
         <li>
-            <a href="/box" class="side-menu">
+            <a href="{{ route('storage.index') }}" class="side-menu">
                 <div class="side-menu__icon">
                     <i data-feather="box"></i>
                 </div>
@@ -44,7 +44,7 @@
             </a>
         </li>
         <li>
-            <a href="/arts" class="side-menu">
+            <a href="{{ route('art.index') }}" class="side-menu">
                 <div class="side-menu__icon">
                     <i data-feather="book-open"></i>
                 </div>
@@ -217,13 +217,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($stoned as $key => $stone)
                             <tr class="intro-x">
                                 <td class="w-40">
                                     <div class="flex">
                                         <div
                                             class="text-gray-600 text-xs whitespace-no-wrap"
                                         >
-                                            Electronic
+                                        {{$stone->storageitem}}
                                         </div>
                                     </div>
                                 </td>
@@ -231,28 +232,22 @@
                                     <a
                                         href=""
                                         class="font-medium whitespace-no-wrap"
-                                        >Robert De Niro</a
+                                        >{{$stone->depositor}}</a
                                     >
                                 </td>
-                                <td class="text-center">85 kgs</td>
-                                <td class="w-40">
-                                    <div
-                                        class="flex items-center justify-center text-theme-9"
-                                    >
-                                        <i
-                                            data-feather="check-square"
-                                            class="w-4 h-4 mr-2"
-                                        ></i>
-                                        Active
+                                <td class="text-center">{{$stone->weight}}</td>
+                                <td class="text-center border-b">
+                                    <div class="flex items-center justify-center {{$stone->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
+                                        <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$stone->status }}
                                     </div>
-                                </td>
+                                    </td>
                                 <td class="table-report__action w-56">
                                     <div
                                         class="flex justify-center items-center"
                                     >
                                         <a
                                             class="flex items-center mr-3"
-                                            href=""
+                                            href="{{ route('stones.show', $stone->id) }}"
                                         >
                                             <i
                                                 data-feather="check-square"
@@ -263,6 +258,91 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
+                            @foreach($arted as $key => $stone)
+                            <tr class="intro-x">
+                                <td class="w-40">
+                                    <div class="flex">
+                                        <div
+                                            class="text-gray-600 text-xs whitespace-no-wrap"
+                                        >
+                                        {{$stone->storageitem}}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a
+                                        href=""
+                                        class="font-medium whitespace-no-wrap"
+                                        >{{$stone->depositor}}</a
+                                    >
+                                </td>
+                                <td class="text-center">{{$stone->weight}}</td>
+                                <td class="text-center border-b">
+                                    <div class="flex items-center justify-center {{$stone->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
+                                        <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$stone->status }}
+                                    </div>
+                                    </td>
+                                <td class="table-report__action w-56">
+                                    <div
+                                        class="flex justify-center items-center"
+                                    >
+                                        <a
+                                            class="flex items-center mr-3"
+                                            href="{{ route('stones.show', $stone->id) }}"
+                                        >
+                                            <i
+                                                data-feather="check-square"
+                                                class="w-4 h-4 mr-1"
+                                            ></i>
+                                            View
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                            @foreach($stored as $key => $stone)
+                            <tr class="intro-x">
+                                <td class="w-40">
+                                    <div class="flex">
+                                        <div
+                                            class="text-gray-600 text-xs whitespace-no-wrap"
+                                        >
+                                        {{$stone->storageitem}}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a
+                                        href=""
+                                        class="font-medium whitespace-no-wrap"
+                                        >{{$stone->depositor}}</a
+                                    >
+                                </td>
+                                <td class="text-center">{{$stone->weight}}</td>
+                                <td class="text-center border-b">
+                                    <div class="flex items-center justify-center {{$stone->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
+                                        <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$stone->status }}
+                                    </div>
+                                    </td>
+                                <td class="table-report__action w-56">
+                                    <div
+                                        class="flex justify-center items-center"
+                                    >
+                                        <a
+                                            class="flex items-center mr-3"
+                                            href="{{ route('stones.show', $stone->id) }}"
+                                        >
+                                            <i
+                                                data-feather="check-square"
+                                                class="w-4 h-4 mr-1"
+                                            ></i>
+                                            View
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

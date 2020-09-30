@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function() {
     Route::get('logout', 'AuthController@logout')->name('logout');
     Route::get('page/{layout}/{pageName}', 'PageController@loadPage')->name('page');
     Route::resource('admin/users', 'UsersController');
-    Route::resource('admin/art', 'FineArtController');
-    Route::resource('admin/storage', 'StorageController');
-    Route::resource('admin/stones', 'PreciousStoneController');
+    Route::resource('/art', 'FineArtController');
+    Route::resource('/storage', 'StorageController');
+    Route::resource('/stones', 'PreciousStoneController');
 });

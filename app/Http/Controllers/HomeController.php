@@ -7,6 +7,7 @@ use App\Models\PreciousStone;
 use App\Models\Storage;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,19 @@ class HomeController extends Controller
             $users = User::role('User')->orderBy('id', 'desc')->take(5)->get();
             return(view('admin.index', compact('stones', 'art', 'storage','users','countUser')));
         }else{
-            return(view('user.index'));
+            $id = Auth::id();
+            $user = User::find($id); 
+            $stones = PreciousStone::where('user_id', $id)->count();
+            $art = FineArt::where('user_id', $id)->count();
+            $storage = Storage::where('user_id', $id)->count();
+            $countUser = User::role('User')->count();
+            $stoned = PreciousStone::where('user_id', $id)->orderBy('id', 'desc')->take(2)->get();
+            $arted = FineArt::where('user_id', $id)->orderBy('id', 'desc')->take(2)->get();
+            $stored = Storage::where('user_id', $id)->orderBy('id', 'desc')->take(2)->get();
+
+         
+
+            return(view('users.index',compact('stones', 'art', 'storage','stoned','arted','stored')));
         }
     }
 
