@@ -66,7 +66,7 @@
                 </li>
                 @endcan
                 <li>
-                    <a href="{{ route('storage.index') }}" class="menu">
+                    <a href="{{ route('stones.index') }}" class="menu">
                         <div class="menu__icon">
                             <i data-feather="hexagon"></i>
                         </div>
@@ -76,7 +76,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('art.index') }}" class="menu">
+                    <a href="{{ route('storage.index') }}" class="menu">
                         <div class="menu__icon">
                             <i data-feather="box"></i>
                         </div>
@@ -86,12 +86,22 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/arts" class="menu">
+                    <a href="{{ route('art.index') }}" class="menu">
                         <div class="menu__icon">
                             <i data-feather="book-open"></i>
                         </div>
                         <div class="menu__title">
                             Fine Arts Storage
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout" class="menu">
+                        <div class="menu__icon">
+                            <i data-feather="box"></i>
+                        </div>
+                        <div class="menu__title">
+                            Logout
                         </div>
                     </a>
                 </li>
