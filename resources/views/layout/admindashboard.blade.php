@@ -53,8 +53,20 @@
                         </div>
                     </a>
                 </li>
+                @can('admin_dashboard')
                 <li>
-                    <a href="/stones" class="menu">
+                    <a href="{{ route('users.index') }}" class="menu">
+                        <div class="menu__icon">
+                            <i data-feather="hexagon"></i>
+                        </div>
+                        <div class="menu__title">
+                            Users
+                        </div>
+                    </a>
+                </li>
+                @endcan
+                <li>
+                    <a href="{{ route('storage.index') }}" class="menu">
                         <div class="menu__icon">
                             <i data-feather="hexagon"></i>
                         </div>
@@ -64,7 +76,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/box" class="menu">
+                    <a href="{{ route('art.index') }}" class="menu">
                         <div class="menu__icon">
                             <i data-feather="box"></i>
                         </div>

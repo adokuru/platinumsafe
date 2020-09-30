@@ -53,8 +53,20 @@
                         </div>
                     </a>
                 </li>
+                @can('admin_dashboard')
                 <li>
-                    <a href="/stones" class="menu">
+                    <a href="{{ route('users.index') }}" class="menu">
+                        <div class="menu__icon">
+                            <i data-feather="hexagon"></i>
+                        </div>
+                        <div class="menu__title">
+                            Users
+                        </div>
+                    </a>
+                </li>
+                @endcan
+                <li>
+                    <a href="{{ route('storage.index') }}" class="menu">
                         <div class="menu__icon">
                             <i data-feather="hexagon"></i>
                         </div>
@@ -64,7 +76,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/box" class="menu">
+                    <a href="{{ route('art.index') }}" class="menu">
                         <div class="menu__icon">
                             <i data-feather="box"></i>
                         </div>
@@ -88,62 +100,7 @@
         <!-- END: Mobile Menu -->
         <div class="flex">
             <!-- BEGIN: Side Menu -->
-            <nav class="side-nav">
-                <a href="" class="intro-x flex items-center pl-5 pt-4">
-                    <img
-                        alt="Platinum Safe Private Fault"
-                        class="w-6"
-                        src="{{ asset('dist/images/logo.svg') }}"
-                    />
-                    <span
-                        class="hidden xl:block text-white text-lg ml-3 font-medium"
-                        >Platinum Safe</span
-                    >
-                </a>
-                <div class="side-nav__devider my-6"></div>
-                <ul>
-                    <li>
-                        <a href="/" class="side-menu side-menu--active">
-                            <div class="side-menu__icon">
-                                <i data-feather="home"></i>
-                            </div>
-                            <div class="side-menu__title">
-                                Dashboard
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stones" class="side-menu">
-                            <div class="side-menu__icon">
-                                <i data-feather="hexagon"></i>
-                            </div>
-                            <div class="side-menu__title">
-                                Precious Metal Storage
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/box" class="side-menu">
-                            <div class="side-menu__icon">
-                                <i data-feather="box"></i>
-                            </div>
-                            <div class="side-menu__title">
-                                Safety Deposit Box
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/arts" class="side-menu">
-                            <div class="side-menu__icon">
-                                <i data-feather="book-open"></i>
-                            </div>
-                            <div class="side-menu__title">
-                                Fine Arts Storage
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            
             <!-- END: Side Menu -->
             <!-- BEGIN: Content -->
             <div class="content">
