@@ -1,4 +1,4 @@
-@extends('../layout/admindashboard') @section('title') {{$user->name}} @endsection
+@extends('../layout/admindashboard') @section('title') {{$art->storageitem}} - Deposited by {{$art->depositor}} - @endsection
 @section('nav')
 <nav class="side-nav">
     <a href="" class="intro-x flex items-center pl-5 pt-4">
@@ -72,7 +72,7 @@
 <div class="content">
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            {{$user->name}} 
+            {{$art->storageitem}} - Deposited by {{$art->depositor}}
         </h2>
         
     </div><br>
@@ -97,34 +97,52 @@
             <tbody>
                 <tr>
                     <th>
-                        Name
+                        Depositor Name
                     </th>
                     <td>
-                        {{$user->name}}
+                        {{$art->depositor}}
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        Email
+                        Stored Item
                     </th>
                     <td>
-                        {{$user->email}}
+                        {{$art->storageitem}}
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        gender
+                        Weight
                     </th>
                     <td>
-                        {{$user->gender}}
+                        {{$art->weight}}
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        Date Created
+                        Amount/Quantity
                     </th>
                     <td>
-                        {{$user->created_at}}
+                        {{$art->quantity}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                       Stored Item Status
+                    </th>
+                    <td>
+                        <div class="flex items-center  {{$art->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
+                            <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$art->status }}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                       Stored Date
+                    </th>
+                    <td>
+                        {{$art->created_at}}
                     </td>
                 </tr>
                 
