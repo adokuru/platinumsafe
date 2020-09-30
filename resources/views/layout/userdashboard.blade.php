@@ -57,7 +57,7 @@
                 <li>
                     <a href="{{ route('users.index') }}" class="menu">
                         <div class="menu__icon">
-                            <i data-feather="hexagon"></i>
+                            <i data-feather="user"></i>
                         </div>
                         <div class="menu__title">
                             Users
