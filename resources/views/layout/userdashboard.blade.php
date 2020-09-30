@@ -25,7 +25,7 @@
         <!-- BEGIN: Mobile Menu -->
         <div class="mobile-menu md:hidden">
             <div class="mobile-menu-bar">
-                <a href="" class="flex mr-auto">
+                <a href="/" class="flex mr-auto">
                     <img
                         alt="Platinum Safe Private Fault"
                         class="w-6"

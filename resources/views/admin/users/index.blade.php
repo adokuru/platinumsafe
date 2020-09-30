@@ -1,7 +1,7 @@
 @extends('../layout/admindashboard') @section('title', 'Users - ')
 @section('nav')
 <nav class="side-nav">
-    <a href="" class="intro-x flex items-center pl-5 pt-4">
+    <a href="/" class="intro-x flex items-center pl-5 pt-4">
         <img
             alt="Platinum Safe Private Fault" 
             class="w-6"

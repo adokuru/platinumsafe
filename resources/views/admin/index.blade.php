@@ -1,7 +1,7 @@
 @extends('../layout/admindashboard') @section('title', 'Dashboard - ')
 @section('nav')
 <nav class="side-nav">
-    <a href="" class="intro-x flex items-center pl-5 pt-4">
+    <a href="/" class="intro-x flex items-center pl-5 pt-4">
         <img
             alt="Platinum Safe Private Fault"
             class="w-6"
@@ -72,9 +72,9 @@
     <div class="top-bar">
         <!-- BEGIN: Breadcrumb -->
         <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-            <a href="" class="">Platinum Safe Private Vault</a>
+            <a href="/" class="">Platinum Safe Private Vault</a>
             <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-            <a href="" class="breadcrumb--active">Dashboard</a>
+            <a href="/" class="breadcrumb--active">Dashboard</a>
         </div>
         <!-- END: Breadcrumb -->
         <!-- BEGIN: Search -->
