@@ -218,4 +218,106 @@
     </div>
 </div>
 <!-- END: Content -->
+<div class="modal" id="header-footer-modal-preview">
+    <div class="modal__content">
+        <div
+            class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200"
+        >
+            <h2 class="font-medium text-base mr-auto">Add New Storage Item</h2>
+            
+            
+        </div>
+        <form method="POST" action="{{ route("storage.store") }}" enctype="multipart/form-data">
+            @csrf
+        <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
+            
+            <div class="col-span-12 sm:col-span-6">
+                <label>User</label>
+                <select name="user_id" class="choiceChosen input w-full border mt-2 flex-1" required>
+                    @foreach($users as $key => $user)
+                    <option value="{{$user->id}}">{{$user->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Depositor Name</label>
+                <input
+                    type="text"
+                    name="depositor"
+                    required
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="example@gmail.com"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Storage Item</label>
+                <input
+                    type="text"
+                    name="storageitem"
+                    required
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="Storage Item"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Weight</label>
+                <input
+                    type="text"
+                    name="weight"
+                    required
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="10 kgs"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Quantity</label>
+                <input
+                    type="text"
+                    name="quantity"
+                    required
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="1"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
+                <label>Status</label>
+                <select name="status" class="input w-full border mt-2 flex-1" required>
+                  
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inctive</option>
+                    
+                </select>
+            </div>
+            
+        
+        </div>
+        <div class="px-5 py-3 text-right border-t border-gray-200">
+            <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 mr-1">
+                Cancel
+            </button>
+            <button type="submit" class="button w-20 bg-theme-1 text-white">
+                Send
+            </button>
+        </div>
+    </form>
+    </div>
+</div>
+<script src="https:://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+	//Chosen
+  $(".choiceChosen, .productChosen").chosen({});
+  //Logic
+  $(".choiceChosen").change(function(){
+    if($(".choiceChosen option:selected").val()=="no"){
+      $(".productChosen option[value='2']").attr('disabled',true).trigger("chosen:updated");
+      $(".productChosen option[value='1']").removeAttr('disabled',true).trigger("chosen:updated");
+    } else {
+      $(".productChosen option[value='1']").attr('disabled',true).trigger("chosen:updated");
+      $(".productChosen option[value='2']").removeAttr('disabled',true).trigger("chosen:updated");
+    }
+  })
+})
+</script>
 @endsection

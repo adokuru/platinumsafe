@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Storage;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StorageController extends Controller
@@ -16,8 +17,9 @@ class StorageController extends Controller
     {
         //
         $storages = Storage::all();
+        $users = User::all();
 
-        return view('admin.storage.index', compact('storages'));
+        return view('admin.storage.index', compact('storages','users'));
     }
 
     /**
@@ -36,9 +38,12 @@ class StorageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Storage $storage)
     {
         //
+        $storage = Storage::create($request->all());
+
+        return redirect()->route('storage.index');
     }
 
     /**
@@ -50,6 +55,7 @@ class StorageController extends Controller
     public function show(Storage $storage)
     {
         //
+        return view('admin.storage.show', compact('storage'));
     }
 
     /**
@@ -61,6 +67,7 @@ class StorageController extends Controller
     public function edit(Storage $storage)
     {
         //
+        return view('admin.storage.edit', compact('storage'));
     }
 
     /**
@@ -73,6 +80,9 @@ class StorageController extends Controller
     public function update(Request $request, Storage $storage)
     {
         //
+        $storage->update($request->all());
+
+        return redirect()->route('storage.index');
     }
 
     /**
