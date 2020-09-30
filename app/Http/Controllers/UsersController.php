@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -43,8 +44,15 @@ class UsersController extends Controller
     public function store(Request $request, User $user)
     {
         //
-        $user = User::create($request->all());
-       
+        $pass = $request->input('password');
+        $password = Hash::make($pass);
+        $user = new User();
+        //On left field name in DB and on right field name in Form/view
+        $user->name = $request->input('name');
+        $user->password = $password;
+        $user->email = $request->input('email');
+        $user->gender = $request->input('gender');
+        $user->save();
         $user->assignRole('User');
 
         return redirect()->route('users.index');
