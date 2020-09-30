@@ -17,7 +17,7 @@ class UsersController extends Controller
     public function index()
     {
         //
-        $users = ser::role('User')->get();
+        $users = User::role('User')->get();
 
         return view('admin.users.index', compact('users'));
     }
