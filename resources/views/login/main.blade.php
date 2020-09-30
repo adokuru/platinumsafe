@@ -40,7 +40,7 @@
                             <input type="checkbox" id="input-remember-me" class="input border mr-2" id="remember-me">
                             <label class="cursor-pointer select-none" for="remember-me">Remember me</label>
                         </div>
-                        <a href="">Forgot Password?</a>
+                        
                     </div>
                     <div class="intro-x mt-5 xl:mt-8 xl:flex justify-center xl:justify-start">
                         <button id="btn-login" class="button button--lg w-full xl:w-32 text-white bg-theme-1 xl:mr-3">Login</button>
