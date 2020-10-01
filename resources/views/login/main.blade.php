@@ -1,7 +1,7 @@
 @extends('../layout/' . $layout)
 
 @section('head')
-    <title>Login - Platinum Safe Private Vault</title>
+    <title>Login - PLATINUM SAFE PRIVATE VAULT</title>
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                 <a href="" class="-intro-x flex items-center pt-5">
                     <img alt="Platinum Safe Private Fault" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
                     <span class="text-white text-lg ml-3">
-                        Platinum Safe <span class="font-medium">Private Vault</span>
+                        PLATINUM SAFE <span class="font-medium">PRIVATE VAULT</span>
                     </span>
                 </a>
                 <div class="my-auto">
@@ -25,6 +25,17 @@
             <!-- BEGIN: Login Form -->
             <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
                 <div class="my-auto mx-auto xl:ml-20 bg-white xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
+                    <a href="/" class="flex  justify-center">
+                        <img
+                            alt="PLATINUM SAFE PRIVATE VAULT"
+                            class="w-6"
+                            src="{{ asset('dist/images/logo.svg') }}"
+                        />
+                        <span class="xl:block text-black text-lg ml-3 font-medium"
+                            >PLATINUM SAFE PRIVATE VAULT</span
+                        >
+                    </a>
+                    <br>
                     <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">Sign In</h2>
                     <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">A few more clicks to sign in to your account. Manage all your stored items in one place</div>
                     <div class="intro-x mt-8">
