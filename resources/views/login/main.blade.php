@@ -10,7 +10,7 @@
             <!-- BEGIN: Login Info -->
             <div class="hidden xl:flex flex-col min-h-screen">
                 <a href="" class="-intro-x flex items-center pt-5">
-                    <img alt="Platinum Safe Private Fault" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
+                    <img alt="Platinum Safe Private Fault" class="w-6" src="dist/images/logo.svg">
                     <span class="text-white text-lg ml-3">
                         PLATINUM SAFE<span class="font-medium">PRIVATE VAULT</span>
                     </span>
@@ -29,7 +29,7 @@
                         <img
                             alt="PLATINUM SAFE PRIVATE VAULT"
                             class="w-6"
-                            src="{{ asset('dist/images/logo.svg') }}"
+                            src="dist/images/logo.svg"
                         />
                         <span class="xl:block text-black text-lg ml-3 font-medium"
                             >PLATINUM SAFE PRIVATE VAULT</span
