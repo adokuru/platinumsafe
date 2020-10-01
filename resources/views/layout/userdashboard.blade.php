@@ -14,7 +14,7 @@
         />
         <meta name="author" content="DanoiTech" />
 
-        <title>@yield('title') - Platinum Safe Private Fault</title>
+        <title>@yield('title') Platinum Safe Private Fault</title>
 
         <!-- BEGIN: CSS Assets-->
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}" />
