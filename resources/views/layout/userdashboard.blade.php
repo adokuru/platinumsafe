@@ -7,14 +7,11 @@
         <link href="{{ asset('dist/images/logo.svg') }}" rel="shortcut icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
-        <meta name="description" content="Platinum Safe Private Fault" />
-        <meta
-            name="keywords"
-            content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app"
-        />
+        <meta name="description" content="PLATINUM SAFE PRIVATE VAULT" />
+        
         <meta name="author" content="DanoiTech" />
 
-        <title>@yield('title') Platinum Safe Private Fault</title>
+        <title>@yield('title')  PLATINUM SAFE PRIVATE VAULT</title>
 
         <!-- BEGIN: CSS Assets-->
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}" />
@@ -27,12 +24,12 @@
             <div class="mobile-menu-bar">
                 <a href="/" class="flex mr-auto">
                     <img
-                        alt="Platinum Safe Private Fault"
+                        alt="PLATINUM SAFE PRIVATE VAULT"
                         class="w-6"
                         src="{{ asset('dist/images/logo.svg') }}"
                     />
                     <span class="xl:block text-white text-lg ml-3 font-medium"
-                        >Platinum Safe</span
+                        >PLATINUM SAFE PRIVATE VAULT</span
                     >
                 </a>
                 <a href="javascript:;" id="mobile-menu-toggler">
