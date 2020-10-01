@@ -8,7 +8,7 @@
             src="{{ asset('dist/images/logo.svg') }}"
         />
         <span class="hidden xl:block text-white text-lg ml-3 font-medium"
-            >Platinum Safe</span
+            >PLATINUM SAFE PRIVATE VAULT</span
         >
     </a>
     <div class="side-nav__devider my-6"></div>

@@ -31,7 +31,7 @@
                             class="w-6"
                             src="{{ asset('dist/images/logo.svg') }}"
                         />
-                        <span class="xl:block text-white text-lg ml-3 font-medium"
+                        <span class="xl:block text-black text-lg ml-3 font-medium"
                             >PLATINUM SAFE PRIVATE VAULT</span
                         >
                     </a>
