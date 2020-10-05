@@ -111,14 +111,14 @@
                         </div>
                     </td>
                     <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{$storage->depositType}}</div>
+                        <div class="font-medium sm:justify-center whitespace-no-wrap">{{$storage->despoitType}}</div>
                     </td>
                     <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{$storage->storageitem}}</div>
+                        <div class="font-medium  sm:justify-center whitespace-no-wrap">{{$storage->storageitem}}</div>
                     </td>
-                    <td class="text-center border-b">{{$storage->weight}}</td>
-                    <td class="text-center border-b">{{$storage->quantity}}</td>
-                    <td class="text-center border-b">
+                    <td class="text-center sm:justify-center border-b">{{$storage->weight}}</td>
+                    <td class="text-center sm:justify-center border-b">{{$storage->quantity}}</td>
+                    <td class="text-center sm:justify-center border-b">
                     <div class="flex items-center justify-center {{$storage->status == 'Active' ? 'text-theme-9' : 'text-theme-6' }}">
                         <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$storage->status }}
                     </div>
@@ -137,7 +137,7 @@
                                         data-feather="eye"
                                         class="w-4 h-4 mr-1"
                                     ></i>
-                                    View
+                                    
                                 </a>
                                 <a
                                     class="flex items-center mr-3"
@@ -147,7 +147,7 @@
                                         data-feather="edit-2"
                                         class="w-4 h-4 mr-1"
                                     ></i>
-                                    Edit
+                                    
                                 </a>
                                 <div class="text-center">
                                     <a
@@ -159,7 +159,7 @@
                                             data-feather="trash"
                                             class="w-4 h-4 mr-1"
                                         ></i>
-                                        Delete</a
+                                        </a
                                     >
                                 </div>
                                 <div
