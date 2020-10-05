@@ -105,7 +105,15 @@
                 </tr>
                 <tr>
                     <th>
-                        Stored Item
+                        Deposited Item
+                    </th>
+                    <td>
+                        {{$storage->despoitType}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Deposited Item
                     </th>
                     <td>
                         {{$storage->storageitem}}
