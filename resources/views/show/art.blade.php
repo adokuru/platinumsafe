@@ -105,7 +105,7 @@
                 </tr>
                 <tr>
                     <th>
-                        Stored Item
+                        Storage Item
                     </th>
                     <td>
                         {{$art->storageitem}}

@@ -105,7 +105,7 @@
                 </tr>
                 <tr>
                     <th>
-                        Stored Item
+                        Deposited Item
                     </th>
                     <td>
                         {{$stone->storageitem}}

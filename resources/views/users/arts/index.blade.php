@@ -59,7 +59,7 @@
 @endsection @section('body')
 <!-- BEGIN: Content -->
 <div class="content">
-    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+<div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Precious Stones List
         </h2>
@@ -70,8 +70,9 @@
         <table class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
-                    <th class="border-b-2 whitespace-no-wrap"> STORAGE ITEM</th>
+                    
                     <th class="border-b-2 text-center whitespace-no-wrap">DESPOITOR NAME</th>
+                    <th class="border-b-2 whitespace-no-wrap"> STORAGE ITEM</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">WEIGHT</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">AMOUNT/QUANITY</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">STATUS</th>
@@ -81,13 +82,14 @@
             <tbody>
                 @foreach($arts as $key => $art)
                 <tr>
-                    <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{$art->storageitem}}</div>
-                    </td>
+                    
                     <td class="text-center border-b">
                         <div class="flex sm:justify-center">
                             {{$art->depositor}}
                         </div>
+                    </td>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{$art->storageitem}}</div>
                     </td>
                     <td class="text-center border-b">{{$art->weight}}</td>
                     <td class="text-center border-b">{{$art->quantity}}</td>

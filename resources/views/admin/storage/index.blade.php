@@ -278,7 +278,7 @@
                 />
             </div>
             <div class="col-span-12 sm:col-span-6">
-                <label>Storage Item</label>
+                <label>Deposited Item</label>
                 <input
                     type="text"
                     name="storageitem"
