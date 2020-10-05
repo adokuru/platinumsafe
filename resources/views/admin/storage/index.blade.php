@@ -70,7 +70,7 @@
 <div class="content">
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            Precious Stones List
+            Safety Deposit Box List
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
 
@@ -90,24 +90,31 @@
         <table class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
-                    <th class="border-b-2 whitespace-no-wrap"> STORAGE ITEM</th>
+                    
                     <th class="border-b-2 text-center whitespace-no-wrap">DESPOITOR NAME</th>
+                    <th class="border-b-2 whitespace-no-wrap"> DEPOSIT TYPE</th>
+                    <th class="border-b-2 whitespace-no-wrap"> DEPOSIT ITEM</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">WEIGHT</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">AMOUNT/QUANITY</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">QUANTITY</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">STATUS</th>
+                    <th class="border-b-2 whitespace-no-wrap"> DEPOSIT DATE</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($storages as $key => $storage)
                 <tr>
-                    <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{$storage->storageitem}}</div>
-                    </td>
+                    
                     <td class="text-center border-b">
                         <div class="flex sm:justify-center">
                             {{$storage->depositor}}
                         </div>
+                    </td>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{$storage->depositType}}</div>
+                    </td>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{$storage->storageitem}}</div>
                     </td>
                     <td class="text-center border-b">{{$storage->weight}}</td>
                     <td class="text-center border-b">{{$storage->quantity}}</td>
@@ -116,6 +123,7 @@
                         <i data-feather="check-square" class="w-4 h-4 mr-2"></i> {{$storage->status }}
                     </div>
                     </td>
+                    <td class="text-center border-b">{{$storage->created_at}}</td>
                     <td class="border-b w-5">
                         
                             <div
@@ -260,13 +268,23 @@
                 />
             </div>
             <div class="col-span-12 sm:col-span-6">
+                <label>Deposit Type</label>
+                <input
+                    type="text"
+                    name="despoitType"
+                    required
+                    class="input w-full border mt-2 flex-1"
+                    placeholder="Deposit Type"
+                />
+            </div>
+            <div class="col-span-12 sm:col-span-6">
                 <label>Storage Item</label>
                 <input
                     type="text"
                     name="storageitem"
                     required
                     class="input w-full border mt-2 flex-1"
-                    placeholder="Storage Item"
+                    placeholder="Deposit Item"
                 />
             </div>
             <div class="col-span-12 sm:col-span-6">
