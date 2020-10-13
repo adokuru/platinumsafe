@@ -91,7 +91,7 @@
             <thead>
                 <tr>
                     
-                    <th class="border-b-2 text-center whitespace-no-wrap">DESPOITOR NAME</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">DEPOSITOR NAME</th>
                     <th class="border-b-2 whitespace-no-wrap"> STORAGE ITEM</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">WEIGHT</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">AMOUNT/QUANITY</th>
@@ -131,7 +131,7 @@
                                         data-feather="eye"
                                         class="w-4 h-4 mr-1"
                                     ></i>
-                                    View
+                                    
                                 </a>
                                 <a
                                     class="flex items-center mr-3"
@@ -141,7 +141,7 @@
                                         data-feather="edit-2"
                                         class="w-4 h-4 mr-1"
                                     ></i>
-                                    Edit
+                                    
                                 </a>
                                 <div class="text-center">
                                     <a
@@ -153,7 +153,7 @@
                                             data-feather="trash"
                                             class="w-4 h-4 mr-1"
                                         ></i>
-                                        Delete</a
+                                        </a
                                     >
                                 </div>
                                 <div

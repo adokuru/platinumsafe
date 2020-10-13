@@ -70,8 +70,9 @@
         <table class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
+                    <th class="border-b-2 text-center whitespace-no-wrap">DEPOSITOR NAME</th>
                     <th class="border-b-2 whitespace-no-wrap"> STORAGE ITEM</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">DESPOITOR NAME</th>
+                   
                     <th class="border-b-2 text-center whitespace-no-wrap">WEIGHT</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">AMOUNT/QUANITY</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">STATUS</th>
@@ -81,14 +82,15 @@
             <tbody>
                 @foreach($storages as $key => $storage)
                 <tr>
-                    <td class="border-b">
-                        <div class="font-medium whitespace-no-wrap">{{$storage->storageitem}}</div>
-                    </td>
                     <td class="text-center border-b">
                         <div class="flex sm:justify-center">
                             {{$storage->depositor}}
                         </div>
                     </td>
+                    <td class="border-b">
+                        <div class="font-medium whitespace-no-wrap">{{$storage->storageitem}}</div>
+                    </td>
+                    
                     <td class="text-center border-b">{{$storage->weight}}</td>
                     <td class="text-center border-b">{{$storage->quantity}}</td>
                     <td class="text-center border-b">

@@ -26,7 +26,7 @@
                     <img
                         alt="PLATINUM SAFE PRIVATE VAULT"
                         class="w-6"
-                        src="dist/images/logo.svg"
+                        src="{{asset('dist/images/logo.svg')}}"
                     />
                     <span class="xl:block text-white text-lg ml-3 font-medium"
                         >PLATINUM SAFE PRIVATE VAULT</span

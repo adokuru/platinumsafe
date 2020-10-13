@@ -91,7 +91,7 @@
             <thead>
                 <tr>
                     
-                    <th class="border-b-2 text-center whitespace-no-wrap">DESPOITOR NAME</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">DEPOSITOR NAME</th>
                     <th class="border-b-2 whitespace-no-wrap"> DEPOSIT TYPE</th>
                     <th class="border-b-2 whitespace-no-wrap"> DEPOSIT ITEM</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">WEIGHT</th>
