@@ -51,6 +51,7 @@ class StorageController extends Controller
     public function store(Request $request, Storage $storage)
     {
         //
+        dd($request);
         $storage = Storage::create($request->all());
 
         return redirect()->route('storage.index');
